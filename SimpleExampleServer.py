@@ -16,10 +16,12 @@ logging.basicConfig(format='%(asctime)s %(message)s', level=logging.DEBUG)
 class SimpleEcho(WebSocket):
 
     def handleMessage(self):
+	print "recibo mensaje : " + self.data
         if self.data is None:
             self.data = ''
 
         try:
+	    print "envio mensaje : " + self.data
             self.sendMessage(str(self.data))
         except Exception as n:
             print n
